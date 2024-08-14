@@ -7,15 +7,23 @@ import {registerLocaleData} from '@angular/common';
 import {provideHttpClient} from '@angular/common/http';
 import {zh_CN, provideNzI18n} from 'ng-zorro-antd/i18n';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {ApplicationConfig, provideZoneChangeDetection, importProvidersFrom} from '@angular/core';
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  importProvidersFrom
+} from '@angular/core';
 
 import {
+  CiCircleOutline,
+  DashboardOutline,
+  FormOutline,
+  InfoCircleOutline,
+  InfoCircleTwoTone,
+  LockOutline,
   MenuFoldOutline,
   MenuUnfoldOutline,
-  FormOutline,
-  DashboardOutline,
-  UserOutline,
-  LockOutline
+  OneToOneOutline,
+  UserOutline
 } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(zh);
@@ -26,12 +34,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideNzIcons(
       [
-        MenuFoldOutline,
-        MenuUnfoldOutline,
+        CiCircleOutline,
         DashboardOutline,
         FormOutline,
+        InfoCircleOutline,
+        InfoCircleTwoTone,
+        LockOutline,
+        MenuFoldOutline,
+        MenuUnfoldOutline,
+        OneToOneOutline,
         UserOutline,
-        LockOutline
       ]),
     provideNzI18n(zh_CN),
     importProvidersFrom(FormsModule),
