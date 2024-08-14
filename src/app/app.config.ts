@@ -1,18 +1,41 @@
-import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { icons } from './icons-provider';
-import { provideNzIcons } from 'ng-zorro-antd/icon';
-import { zh_CN, provideNzI18n } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import {routes} from './app.routes';
+import {FormsModule} from '@angular/forms';
 import zh from '@angular/common/locales/zh';
-import { FormsModule } from '@angular/forms';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import {provideRouter} from '@angular/router';
+import {provideNzIcons} from 'ng-zorro-antd/icon';
+import {registerLocaleData} from '@angular/common';
+import {provideHttpClient} from '@angular/common/http';
+import {zh_CN, provideNzI18n} from 'ng-zorro-antd/i18n';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {ApplicationConfig, provideZoneChangeDetection, importProvidersFrom} from '@angular/core';
+
+import {
+  MenuFoldOutline,
+  MenuUnfoldOutline,
+  FormOutline,
+  DashboardOutline,
+  UserOutline,
+  LockOutline
+} from '@ant-design/icons-angular/icons';
 
 registerLocaleData(zh);
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideNzIcons(icons), provideNzI18n(zh_CN), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient()]
+  providers: [
+    provideZoneChangeDetection({eventCoalescing: true}),
+    provideRouter(routes),
+    provideNzIcons(
+      [
+        MenuFoldOutline,
+        MenuUnfoldOutline,
+        DashboardOutline,
+        FormOutline,
+        UserOutline,
+        LockOutline
+      ]),
+    provideNzI18n(zh_CN),
+    importProvidersFrom(FormsModule),
+    provideAnimationsAsync(),
+    provideHttpClient()
+  ]
 };
