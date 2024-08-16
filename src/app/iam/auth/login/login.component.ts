@@ -35,7 +35,7 @@ import {firstValueFrom} from "rxjs";
 })
 export class LoginComponent {
 
-  private readonly fb = inject(NonNullableFormBuilder);
+  private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly http = inject(HttpClient);
 
   //用于存储图片数据或URL
@@ -46,7 +46,7 @@ export class LoginComponent {
     password: FormControl<string>;
     captcha: FormControl<string>;
     remember: FormControl<boolean>;
-  }> = this.fb.group({
+  }> = this.formBuilder.group({
     userName: ['', [Validators.required]],
     password: ['', [Validators.required]],
     captcha: ['', [Validators.required]],
@@ -67,7 +67,7 @@ export class LoginComponent {
   }
 
   captcha() {
-    const imageUrl = 'http://localhost:8810/loong-iam-app/auth/captcha';
+    const imageUrl = 'http://localhost:8080/loong-iam-app/auth/captcha';
     this.http.get(imageUrl, {
       responseType: 'blob',
       withCredentials: true,
@@ -95,7 +95,7 @@ export class LoginComponent {
       productFormData.set('captcha', formValues.captcha + '');
       productFormData.set('rememberMe', formValues.remember + '');
       const response = await firstValueFrom(
-        this.http.post('http://localhost:8810/loong-iam-app/auth/login', productFormData, {
+        this.http.post('http://localhost:8080/loong-iam-app/auth/login', productFormData, {
           observe: 'response',
           withCredentials: true,
         }),
