@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from "./auth/login/login.component";
 import {UserComponent} from "./user/user/user.component";
+import {DepartmentComponent} from "./department/department.component";
 
 export const IAM_ROUTES: Routes = [
   {
@@ -8,7 +9,11 @@ export const IAM_ROUTES: Routes = [
     component: LoginComponent
   },
   {
-    path: 'user/user',
+    path: 'user',
     component: UserComponent
+  },
+  {
+    path: 'department',
+    component: DepartmentComponent
   }
 ];
