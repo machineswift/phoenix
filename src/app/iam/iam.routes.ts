@@ -9,7 +9,7 @@ export const IAM_ROUTES: Routes = [
     component: LoginComponent
   },
   {
-    path: 'user-page/user-page',
+    path: 'user/user-page',
     component: UserPageComponent
   },
   {

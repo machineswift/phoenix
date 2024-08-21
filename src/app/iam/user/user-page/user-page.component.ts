@@ -16,6 +16,7 @@ import {NzFormDirective, NzFormLabelComponent} from "ng-zorro-antd/form";
 import {NzInputDirective} from "ng-zorro-antd/input";
 import {NzButtonComponent} from "ng-zorro-antd/button";
 import {NzIconDirective} from "ng-zorro-antd/icon";
+import {NzDividerComponent} from "ng-zorro-antd/divider";
 
 
 interface PagedResult<T> {
@@ -26,6 +27,7 @@ interface PagedResult<T> {
 }
 
 interface LoongUser {
+  id:string;
   userName: string;
   phone: string;
   fullName: string;
@@ -47,7 +49,8 @@ interface LoongUser {
     NzInputDirective,
     NzButtonComponent,
     NzIconDirective,
-    NzCellFixedDirective
+    NzCellFixedDirective,
+    NzDividerComponent
   ],
   styleUrls: ['./user-page.component.scss']
 })
@@ -63,12 +66,14 @@ export class UserPageComponent implements OnInit {
   pageIndex = 1;
 
   validateForm: FormGroup<{
+    id: FormControl<string>;
     userName: FormControl<string>;
     phone: FormControl<string>;
     fullName: FormControl<string>;
     gender: FormControl<string>;
     status: FormControl<boolean>;
   }> = this.formBuilder.group({
+    id: ['', [Validators.maxLength(32)]],
     userName: ['', [Validators.maxLength(32)]],
     phone: ['', [Validators.maxLength(16)]],
     fullName: ['', [Validators.maxLength(64)]],
@@ -103,8 +108,9 @@ export class UserPageComponent implements OnInit {
       let formValues = this.validateForm.value;
 
       const response = await firstValueFrom(
-        this.http.post('http://localhost:8080/loong-iam-app/user/page',
+        this.http.post('loong-iam-app/user/page',
           {
+            id: formValues.id,
             userName: formValues.userName,
             phone: formValues.phone,
             fullName: formValues.fullName,

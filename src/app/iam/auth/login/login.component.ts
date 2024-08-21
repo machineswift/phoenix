@@ -107,8 +107,7 @@ export class LoginComponent {
       console.log(response.status); // 200
       console.log(response.body);   //
 
-      this.router.navigate(['iam/user/user']).then(r => {
-
+      this.router.navigate(['iam/user/user-page']).then(r => {
         console.log("导航到登录页面");
       });
     }

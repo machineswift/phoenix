@@ -6,7 +6,7 @@ import {provideNzIcons} from 'ng-zorro-antd/icon';
 import {registerLocaleData} from '@angular/common';
 import {zh_CN, provideNzI18n} from 'ng-zorro-antd/i18n';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideHttpClient, withInterceptors, withInterceptorsFromDi} from '@angular/common/http';
 import {ApplicationConfig, provideZoneChangeDetection, importProvidersFrom} from '@angular/core';
 
 import {
@@ -21,11 +21,9 @@ import {
   OneToOneOutline,
   UserOutline
 } from '@ant-design/icons-angular/icons';
-
-
-import {urlInterceptorInterceptor} from "./interceptors/url-interceptor.interceptor";
-import {cookieInterceptorInterceptor} from "./interceptors/cookie-interceptor.interceptor";
-import {statusInterceptorInterceptor} from "./interceptors/status-interceptor.interceptor";
+import {CookieInterceptor} from "./interceptors/cookie-interceptor.service";
+import {UrlInterceptor} from "./interceptors/url-interceptor.service";
+import {StatusInterceptor} from "./interceptors/status-interceptor.service";
 
 
 registerLocaleData(zh);
@@ -52,8 +50,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(FormsModule),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
-    {provide: HTTP_INTERCEPTORS, useValue: urlInterceptorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useValue: cookieInterceptorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useValue: statusInterceptorInterceptor, multi: true}
+    provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor,StatusInterceptor]))
   ]
 };
