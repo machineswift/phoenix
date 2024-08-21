@@ -21,12 +21,12 @@ import {
   InfoCircleTwoTone,
   LockOutline,
   MenuFoldOutline,
-  MenuUnfoldOutline,
+  MenuUnfoldOutline, NotificationOutline,
   OneToOneOutline,
   UserOutline
 } from '@ant-design/icons-angular/icons';
-import {WebStatusInterceptor} from "./web/interceptors/webStatus.interceptor";
-import {CookieInterceptor} from "./web/interceptors/cookie.interceptor";
+import {WebStatusInterceptor} from "./web/interceptor/webStatus.interceptor";
+import {CookieInterceptor} from "./web/interceptor/cookie.interceptor";
 
 registerLocaleData(zh);
 
@@ -44,6 +44,7 @@ export const appConfig: ApplicationConfig = {
         LockOutline,
         MenuFoldOutline,
         MenuUnfoldOutline,
+        NotificationOutline,
         OneToOneOutline,
         UserOutline,
       ]),

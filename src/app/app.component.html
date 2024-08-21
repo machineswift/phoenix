@@ -1,78 +1,69 @@
-<nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-    nzCollapsible
-    nzWidth="12%"
-    nzBreakpoint="md"
-    [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>phoenix</h1>
-      </a>
-    </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="系统管理" nzIcon="user">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/iam/user">用户</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/iam/department">部门</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="auth" nzIcon="lock">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/iam/auth/login">登录</a>
-          </li>
-        </ul>
-      </li>
+<nz-layout>
+  <nz-header>
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+      <li nz-menu-item nzSelected>系统设置</li>
+      <li nz-menu-item>HRM</li>
+      <li nz-menu-item>CRM</li>
+      <li nz-menu-item>BI</li>
     </ul>
-  </nz-sider>
+  </nz-header>
   <nz-layout>
-    <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></span>
-        </span>
+    <nz-sider nzWidth="200px" nzTheme="light" class="menu-sidebar"
+              nzCollapsible
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+      <div class="menu-container">
+        <ul nz-menu nzMode="inline" class="sidebar-menu" [nzInlineCollapsed]="isCollapsed">
+          <div>
+            <li nz-submenu nzOpen nzIcon="user" nzTitle="权限管理">
+              <ul>
+                <li nz-menu-item nzMatchRouter nzSelected>
+                  <a routerLink="/iam/user/user">用户</a>
+                </li>
+
+                <li nz-menu-item>菜单</li>
+                <li nz-menu-item>角色</li>
+
+                <li nz-menu-item nzMatchRouter>
+                  <a routerLink="/iam/department">部门</a>
+                </li>
+
+                <li nz-menu-item>岗位</li>
+              </ul>
+            </li>
+
+            <li nz-submenu nzIcon="notification" nzTitle="日志管理">
+              <ul>
+                <li nz-menu-item nzMatchRouter>
+                  <a routerLink="/welcome">Welcome</a>
+                </li>
+              </ul>
+            </li>
+
+            <li nz-submenu nzIcon="notification" nzTitle="认证">
+              <ul>
+                <li nz-menu-item nzMatchRouter>
+                  <a routerLink="/iam/auth/login">登录</a>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </ul>
       </div>
-    </nz-header>
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>List</nz-breadcrumb-item>
+        <nz-breadcrumb-item>App</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
   </nz-layout>
 </nz-layout>

@@ -13,6 +13,7 @@ import {NzButtonComponent} from "ng-zorro-antd/button";
 import {NzCheckboxComponent} from "ng-zorro-antd/checkbox";
 import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -58,7 +59,7 @@ export class LoginComponent {
     theme: 'twotone'
   };
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
@@ -103,6 +104,11 @@ export class LoginComponent {
 
       console.log(response.status); // 200
       console.log(response.body);   //
+
+      this.router.navigate(['iam/user/user']).then(r => {
+
+        console.log("导航到登录页面");
+      });
     }
   }
 
