@@ -1,4 +1,10 @@
+import {firstValueFrom} from "rxjs";
 import {Component, inject} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {NzButtonComponent} from "ng-zorro-antd/button";
+import {NzCheckboxComponent} from "ng-zorro-antd/checkbox";
+import {NzColDirective, NzRowDirective} from "ng-zorro-antd/grid";
+import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
 import {FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {
   NzFormControlComponent,
@@ -7,12 +13,8 @@ import {
   NzFormLabelComponent,
   NzFormTooltipIcon
 } from "ng-zorro-antd/form";
-import {NzInputDirective, NzInputGroupComponent} from "ng-zorro-antd/input";
-import {NzColDirective, NzRowDirective} from "ng-zorro-antd/grid";
-import {NzButtonComponent} from "ng-zorro-antd/button";
-import {NzCheckboxComponent} from "ng-zorro-antd/checkbox";
-import {HttpClient} from "@angular/common/http";
-import {firstValueFrom} from "rxjs";
+
+
 import {Router} from "@angular/router";
 
 @Component({
@@ -68,7 +70,7 @@ export class LoginComponent {
   }
 
   captcha() {
-    const imageUrl = 'http://localhost:8080/loong-iam-app/auth/captcha';
+    const imageUrl = 'loong-iam-app/auth/captcha';
     this.http.get(imageUrl, {
       responseType: 'blob',
       withCredentials: true,
@@ -96,7 +98,7 @@ export class LoginComponent {
       productFormData.set('captcha', formValues.captcha + '');
       productFormData.set('rememberMe', formValues.remember + '');
       const response = await firstValueFrom(
-        this.http.post('http://localhost:8080/loong-iam-app/auth/login', productFormData, {
+        this.http.post('loong-iam-app/auth/login', productFormData, {
           observe: 'response',
           withCredentials: true,
         }),

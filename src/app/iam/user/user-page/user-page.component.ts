@@ -33,7 +33,7 @@ interface LoongUser {
 
 @Component({
   selector: 'nz-demo-table-ajax',
-  templateUrl: './user.component.html',
+  templateUrl: './user-page.component.html',
   standalone: true,
   imports: [
     NzTableComponent,
@@ -49,9 +49,9 @@ interface LoongUser {
     NzIconDirective,
     NzCellFixedDirective
   ],
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user-page.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserPageComponent implements OnInit {
 
   private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly http = inject(HttpClient);
@@ -116,10 +116,7 @@ export class UserComponent implements OnInit {
             withCredentials: true,
           }),
       );
-
-      console.log(response.status); // 200
-      console.log(response.body);   //
-
+      console.log(response.body);
 
       this.loading = false;
       const pagedData: PagedResult<LoongUser> = JSON.parse(JSON.stringify(response.body));
