@@ -27,7 +27,7 @@ interface PagedResult<T> {
 }
 
 interface LoongUser {
-  id:string;
+  userId:string;
   userName: string;
   phone: string;
   fullName: string;
@@ -66,14 +66,12 @@ export class UserPageComponent implements OnInit {
   pageIndex = 1;
 
   validateForm: FormGroup<{
-    id: FormControl<string>;
     userName: FormControl<string>;
     phone: FormControl<string>;
     fullName: FormControl<string>;
     gender: FormControl<string>;
     status: FormControl<boolean>;
   }> = this.formBuilder.group({
-    id: ['', [Validators.maxLength(32)]],
     userName: ['', [Validators.maxLength(32)]],
     phone: ['', [Validators.maxLength(16)]],
     fullName: ['', [Validators.maxLength(64)]],
@@ -110,7 +108,6 @@ export class UserPageComponent implements OnInit {
       const response = await firstValueFrom(
         this.http.post('loong-iam-app/user/page',
           {
-            id: formValues.id,
             userName: formValues.userName,
             phone: formValues.phone,
             fullName: formValues.fullName,

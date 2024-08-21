@@ -15,4 +15,3 @@ export const UrlInterceptor: HttpInterceptorFn = (request,
   return next(modifiedUrlRequest);
 
 };
-

@@ -6,8 +6,10 @@
       <li nz-menu-item>HRM</li>
       <li nz-menu-item>CRM</li>
       <li nz-menu-item>BI</li>
+      <!--<button nz-button nzType="text" routerLink="/iam/auth/login">登录</button>-->
     </ul>
   </nz-header>
+
   <nz-layout>
     <nz-sider nzWidth="200px" nzTheme="light" class="menu-sidebar"
               nzCollapsible
@@ -44,15 +46,16 @@
 
             <li nz-submenu nzIcon="notification" nzTitle="认证">
               <ul>
-                <li nz-menu-item nzMatchRouter>
+                <!--<li nz-menu-item nzMatchRouter>
                   <a routerLink="/iam/auth/login">登录</a>
-                </li>
+                </li>-->
               </ul>
             </li>
           </div>
         </ul>
       </div>
     </nz-sider>
+
     <nz-layout class="inner-layout">
       <nz-breadcrumb>
         <nz-breadcrumb-item>Home</nz-breadcrumb-item>
@@ -65,5 +68,6 @@
         </div>
       </nz-content>
     </nz-layout>
+
   </nz-layout>
 </nz-layout>

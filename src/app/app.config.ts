@@ -21,9 +21,9 @@ import {
   OneToOneOutline,
   UserOutline
 } from '@ant-design/icons-angular/icons';
-import {CookieInterceptor} from "./interceptors/cookie-interceptor.service";
-import {UrlInterceptor} from "./interceptors/url-interceptor.service";
-import {StatusInterceptor} from "./interceptors/status-interceptor.service";
+import {CookieInterceptor} from "./interceptors/cookie-interceptor.interceptor";
+import {UrlInterceptor} from "./interceptors/url-interceptor.interceptor";
+import {StatusInterceptor} from "./interceptors/status-interceptor.interceptor";
 
 
 registerLocaleData(zh);

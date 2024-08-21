@@ -67,7 +67,7 @@
 
     <thead>
     <tr>
-      <th nzColumnKey="id">ID</th>
+      <th nzColumnKey="userId" hidden="hidden">用户ID</th>
       <th nzColumnKey="userName" nzLeft>用户名</th>
       <th nzColumnKey="phone">手机号</th>
       <th nzColumnKey="fullName">姓名</th>
@@ -78,12 +78,12 @@
 
     <tbody>
     <tr *ngFor="let data of userList">
-      <td>{{ data.id }}</td>
+      <td hidden="hidden">{{ data.userId }}</td>
       <td>{{ data.userName }}</td>
       <td>{{ data.phone }}</td>
       <td>{{ data.fullName }}</td>
       <td>
-        <a>Action 一 {{ data.id }}</a>
+        <a>Action 一 {{ data.userId }}</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a>Delete</a>
       </td>

@@ -10,6 +10,11 @@
   line-height: 64px;
 }
 
+.nz-header button {
+  float: right;
+  margin-right: 16px;
+}
+
 .menu-sidebar {
   position: relative;
   z-index: 10;
@@ -19,7 +24,7 @@
 }
 
 .menu-container {
-  height: calc(98vh - 64px); /* 调整高度以适应头部或者其他元素 */
+  height: calc(98vh - 64px);
   overflow-y: auto;
 }
 
