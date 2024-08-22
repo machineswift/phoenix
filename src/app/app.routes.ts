@@ -7,13 +7,13 @@ export const routes: Routes = [
     redirectTo: '/welcome'
   },
   {
-    path: 'iam',
-    loadChildren: () => import('./iam/iam.routes')
-      .then(m => m.IAM_ROUTES)
-  },
-  {
     path: 'welcome',
     loadChildren: () => import('./pages/welcome/welcome.routes')
       .then(m => m.WELCOME_ROUTES)
+  },
+  {
+    path: 'iam',
+    loadChildren: () => import('./iam/iam.routes')
+      .then(m => m.IAM_ROUTES)
   }
 ];

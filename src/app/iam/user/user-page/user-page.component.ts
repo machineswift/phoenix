@@ -14,9 +14,12 @@ import {
 import {NzColDirective, NzRowDirective} from "ng-zorro-antd/grid";
 import {NzFormDirective, NzFormLabelComponent} from "ng-zorro-antd/form";
 import {NzInputDirective} from "ng-zorro-antd/input";
-import {NzButtonComponent} from "ng-zorro-antd/button";
+import {NzButtonComponent, NzButtonGroupComponent} from "ng-zorro-antd/button";
 import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzDividerComponent} from "ng-zorro-antd/divider";
+import {NzDropDownDirective, NzDropdownMenuComponent} from "ng-zorro-antd/dropdown";
+import {log} from "ng-zorro-antd/core/logger";
+import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
 
 
 interface PagedResult<T> {
@@ -50,7 +53,12 @@ interface LoongUser {
     NzButtonComponent,
     NzIconDirective,
     NzCellFixedDirective,
-    NzDividerComponent
+    NzDividerComponent,
+    NzDropDownDirective,
+    NzDropdownMenuComponent,
+    NzMenuDirective,
+    NzMenuItemComponent,
+    NzButtonGroupComponent
   ],
   styleUrls: ['./user-page.component.scss']
 })
@@ -129,4 +137,6 @@ export class UserPageComponent implements OnInit {
       this.pageIndex = pagedData.current;
     }
   }
+
+  protected readonly log = log;
 }

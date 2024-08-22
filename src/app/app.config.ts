@@ -12,12 +12,14 @@ import {ApplicationConfig, provideZoneChangeDetection, importProvidersFrom} from
 import {
   CiCircleOutline,
   DashboardOutline,
+  FileWordOutline,
   FormOutline,
   InfoCircleOutline,
   InfoCircleTwoTone,
   LockOutline,
   MenuFoldOutline,
-  MenuUnfoldOutline, NotificationOutline,
+  MenuUnfoldOutline,
+  NotificationOutline,
   OneToOneOutline,
   UserOutline
 } from '@ant-design/icons-angular/icons';
@@ -39,6 +41,7 @@ export const appConfig: ApplicationConfig = {
         FormOutline,
         InfoCircleOutline,
         InfoCircleTwoTone,
+        FileWordOutline,
         LockOutline,
         MenuFoldOutline,
         MenuUnfoldOutline,
@@ -50,6 +53,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(FormsModule),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
-    provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor,StatusInterceptor]))
+    provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor, StatusInterceptor]))
   ]
 };
