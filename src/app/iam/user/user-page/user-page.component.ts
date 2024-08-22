@@ -20,21 +20,8 @@ import {NzDividerComponent} from "ng-zorro-antd/divider";
 import {NzDropDownDirective, NzDropdownMenuComponent} from "ng-zorro-antd/dropdown";
 import {log} from "ng-zorro-antd/core/logger";
 import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
-
-
-interface PagedResult<T> {
-  current: number;
-  size: number;
-  total: number;
-  records: T[];
-}
-
-interface LoongUser {
-  userId:string;
-  userName: string;
-  phone: string;
-  fullName: string;
-}
+import {NzModalComponent} from "ng-zorro-antd/modal";
+import {PagedResult, UserList} from "../user.model";
 
 @Component({
   selector: 'nz-demo-table-ajax',
@@ -58,7 +45,8 @@ interface LoongUser {
     NzDropdownMenuComponent,
     NzMenuDirective,
     NzMenuItemComponent,
-    NzButtonGroupComponent
+    NzButtonGroupComponent,
+    NzModalComponent
   ],
   styleUrls: ['./user-page.component.scss']
 })
@@ -68,7 +56,7 @@ export class UserPageComponent implements OnInit {
   private readonly http = inject(HttpClient);
 
   total = 1;
-  userList: LoongUser[] = [];
+  userList: UserList[] = [];
   loading = true;
   pageSize = 20;
   pageIndex = 1;
@@ -130,7 +118,7 @@ export class UserPageComponent implements OnInit {
       console.log(response.body);
 
       this.loading = false;
-      const pagedData: PagedResult<LoongUser> = JSON.parse(JSON.stringify(response.body));
+      const pagedData: PagedResult<UserList> = JSON.parse(JSON.stringify(response.body));
       this.total = pagedData.total;
       this.userList = pagedData.records;
       this.pageSize = pagedData.size;

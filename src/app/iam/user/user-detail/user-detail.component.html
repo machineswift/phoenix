@@ -1,1 +1,9 @@
-<p>user-detail works!</p>
+<nz-card>
+  <nz-descriptions [nzTitle]="'个人信息'" [nzColumn]="1">
+    <ng-template>个人信息</ng-template>
+    <nz-descriptions-item nzTerm="用户id" nzSpan="2">{{ user.userId }}</nz-descriptions-item>
+    <nz-descriptions-item nzTerm="用户名" nzSpan="2">{{ user.userName }}</nz-descriptions-item>
+    <nz-descriptions-item nzTerm="姓名" nzSpan="2">{{ user.fullName }}</nz-descriptions-item>
+    <nz-descriptions-item nzTerm="手机号" nzSpan="2">{{ user.phone }}</nz-descriptions-item>
+  </nz-descriptions>
+</nz-card>

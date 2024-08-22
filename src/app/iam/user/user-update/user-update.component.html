@@ -1,0 +1,8 @@
+<form (ngSubmit)="onSave(user)" novalidate>
+  <div>
+    <label>First Name:</label>
+    <input type="text" [(ngModel)]="user.userName" name="firstName" required>
+  </div>
+
+  <button type="submit">Save</button>
+</form>
