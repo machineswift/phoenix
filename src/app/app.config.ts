@@ -54,5 +54,5 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
     provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor, StatusInterceptor]))
-  ]
+  ],
 };

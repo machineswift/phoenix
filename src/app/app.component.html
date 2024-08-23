@@ -6,7 +6,6 @@
       <li nz-menu-item>HRM</li>
       <li nz-menu-item>CRM</li>
       <li nz-menu-item>BI</li>
-      <!--<button nz-button nzType="text" routerLink="/iam/auth/login">登录</button>-->
     </ul>
   </nz-header>
 
@@ -21,6 +20,11 @@
           <div>
             <li nz-submenu nzOpen nzIcon="user" nzTitle="权限管理">
               <ul>
+
+                <li nz-menu-item nzMatchRouter nzSelected>
+                  <a routerLink="/temp">临时</a>
+                </li>
+
                 <li nz-menu-item nzMatchRouter nzSelected>
                   <a routerLink="/iam/user/user-page">用户</a>
                 </li>

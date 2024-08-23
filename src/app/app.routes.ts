@@ -1,10 +1,15 @@
 import {Routes} from '@angular/router';
+import {TempComponent} from "./temp/temp.component";
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     redirectTo: '/welcome'
+  },
+  {
+    path: 'temp',
+    component: TempComponent
   },
   {
     path: 'welcome',
