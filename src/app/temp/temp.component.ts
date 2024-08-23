@@ -1,48 +1,38 @@
 import { Component } from '@angular/core';
-import {NzButtonComponent} from "ng-zorro-antd/button";
 import {NzModalComponent, NzModalContentDirective} from "ng-zorro-antd/modal";
-import { NzModalService } from 'ng-zorro-antd/modal';
-
+import {NzButtonComponent} from "ng-zorro-antd/button";
 
 @Component({
   selector: 'nz-demo-modal-basic',
   standalone: true,
   imports: [
-    NzButtonComponent,
     NzModalComponent,
+    NzButtonComponent,
     NzModalContentDirective
   ],
-  template: `
-    <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button>
-    <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
-      <ng-container *nzModalContent>
-        <p>Content one</p>
-        <p>Content two</p>
-        <p>Content three</p>
-      </ng-container>
-    </nz-modal>
-  `
+  templateUrl: './temp.component.html',
+  styleUrls: ['./temp.component.scss']
 })
 export class TempComponent {
 
-  constructor(private modalService: NzModalService) {}
 
   isVisible = false;
-
+  isOkLoading = false;
 
   showModal(): void {
     this.isVisible = true;
   }
 
   handleOk(): void {
-    console.log('Button ok clicked!');
-    this.isVisible = false;
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.isVisible = false;
+      this.isOkLoading = false;
+    }, 3000);
   }
 
   handleCancel(): void {
-    console.log('Button cancel clicked!');
     this.isVisible = false;
   }
-
 
 }
