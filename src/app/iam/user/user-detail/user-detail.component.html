@@ -1,9 +1,15 @@
-<nz-card>
-  <nz-descriptions [nzTitle]="'个人信息'" [nzColumn]="1">
-    <ng-template>个人信息</ng-template>
-    <nz-descriptions-item nzTerm="用户id" nzSpan="2">{{ user.userId }}</nz-descriptions-item>
-    <nz-descriptions-item nzTerm="用户名" nzSpan="2">{{ user.userName }}</nz-descriptions-item>
-    <nz-descriptions-item nzTerm="姓名" nzSpan="2">{{ user.fullName }}</nz-descriptions-item>
-    <nz-descriptions-item nzTerm="手机号" nzSpan="2">{{ user.phone }}</nz-descriptions-item>
-  </nz-descriptions>
-</nz-card>
+<h2 mat-dialog-title>用户详情</h2>
+<mat-dialog-content>
+  <nz-card>
+    <nz-descriptions [nzTitle]="'个人信息'" [nzColumn]="1">
+      <ng-template>个人信息</ng-template>
+      <nz-descriptions-item nzTerm="用户id" nzSpan="2">{{ user.userId }}</nz-descriptions-item>
+      <nz-descriptions-item nzTerm="用户名" nzSpan="2">{{ user.userName }}</nz-descriptions-item>
+      <nz-descriptions-item nzTerm="姓名" nzSpan="2">{{ user.fullName }}</nz-descriptions-item>
+      <nz-descriptions-item nzTerm="手机号" nzSpan="2">{{ user.phone }}</nz-descriptions-item>
+    </nz-descriptions>
+  </nz-card>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>关闭</button>
+</mat-dialog-actions>

@@ -53,6 +53,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(FormsModule),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
-    provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor, StatusInterceptor]))
+    provideHttpClient(withInterceptors([UrlInterceptor, CookieInterceptor, StatusInterceptor])), provideAnimationsAsync(), provideAnimationsAsync()
   ],
 };

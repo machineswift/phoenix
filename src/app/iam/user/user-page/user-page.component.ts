@@ -22,32 +22,38 @@ import {log} from "ng-zorro-antd/core/logger";
 import {NzMenuDirective, NzMenuItemComponent} from "ng-zorro-antd/menu";
 import {NzModalComponent} from "ng-zorro-antd/modal";
 import {PagedResult, UserList} from "../user.model";
+import {MatButton} from "@angular/material/button";
+import {MatDialog} from "@angular/material/dialog";
+import {Temp01Component} from "../../../temp/temp01/temp01.component";
+import {UserDetailComponent} from "../user-detail/user-detail.component";
+import {UserUpdateComponent} from "../user-update/user-update.component";
 
 @Component({
   selector: 'nz-demo-table-ajax',
   templateUrl: './user-page.component.html',
   standalone: true,
-  imports: [
-    NzTableComponent,
-    NzThAddOnComponent,
-    NgForOf,
-    ReactiveFormsModule,
-    NzRowDirective,
-    NzColDirective,
-    NzFormDirective,
-    NzFormLabelComponent,
-    NzInputDirective,
-    NzButtonComponent,
-    NzIconDirective,
-    NzCellFixedDirective,
-    NzDividerComponent,
-    NzDropDownDirective,
-    NzDropdownMenuComponent,
-    NzMenuDirective,
-    NzMenuItemComponent,
-    NzButtonGroupComponent,
-    NzModalComponent
-  ],
+    imports: [
+        NzTableComponent,
+        NzThAddOnComponent,
+        NgForOf,
+        ReactiveFormsModule,
+        NzRowDirective,
+        NzColDirective,
+        NzFormDirective,
+        NzFormLabelComponent,
+        NzInputDirective,
+        NzButtonComponent,
+        NzIconDirective,
+        NzCellFixedDirective,
+        NzDividerComponent,
+        NzDropDownDirective,
+        NzDropdownMenuComponent,
+        NzMenuDirective,
+        NzMenuItemComponent,
+        NzButtonGroupComponent,
+        NzModalComponent,
+        MatButton
+    ],
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
@@ -127,4 +133,16 @@ export class UserPageComponent implements OnInit {
   }
 
   protected readonly log = log;
+
+
+
+  readonly dialog = inject(MatDialog);
+
+  openUserDetail() {
+    this.dialog.open(UserDetailComponent);
+  }
+
+  openUserUpdate() {
+    this.dialog.open(UserUpdateComponent);
+  }
 }

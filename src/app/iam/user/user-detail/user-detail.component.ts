@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {NzCardComponent} from "ng-zorro-antd/card";
 import {NzDescriptionsComponent, NzDescriptionsItemComponent} from "ng-zorro-antd/descriptions";
-import {UserDetail} from "../user.model";
+import {MatButton} from "@angular/material/button";
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-detail',
@@ -9,7 +10,12 @@ import {UserDetail} from "../user.model";
   imports: [
     NzCardComponent,
     NzDescriptionsComponent,
-    NzDescriptionsItemComponent
+    NzDescriptionsItemComponent,
+    MatButton,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle
   ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
@@ -33,8 +39,5 @@ export class UserDetailComponent {
     };
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 }

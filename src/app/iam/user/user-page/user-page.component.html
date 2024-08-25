@@ -84,18 +84,9 @@
       <td>{{ data.fullName }}</td>
       <td>
 
-        <nz-button-group>
-          <button nz-button (click)="log()">详情</button>
-          <button nz-button nz-dropdown [nzDropdownMenu]="menuActions" nzPlacement="bottomRight">
-            <span nz-icon nzType="ellipsis"></span>
-          </button>
-        </nz-button-group>
 
-        <nz-dropdown-menu #menuActions="nzDropdownMenu">
-          <ul nz-menu>
-            <li nz-menu-item>编辑</li>
-          </ul>
-        </nz-dropdown-menu>
+        <button mat-button (click)="openUserDetail()">详情</button>
+        <button mat-button (click)="openUserUpdate()">编辑</button>
 
       </td>
     </tr>

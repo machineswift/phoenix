@@ -1,8 +1,27 @@
-<form (ngSubmit)="onSave(user)" novalidate>
-  <div>
-    <label>First Name:</label>
-    <input type="text" [(ngModel)]="user.userName" name="firstName" required>
-  </div>
-
-  <button type="submit">Save</button>
-</form>
+<h2 mat-dialog-title>修改用户</h2>
+<mat-dialog-content class="mat-typography">
+  <nz-card>
+    <form (ngSubmit)="onSave(user)" novalidate>
+      <div>
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="user.userName" name="firstName" required>
+      </div>
+      <div>
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="user.userName" name="firstName" required>
+      </div>
+      <div>
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="user.userName" name="firstName" required>
+      </div>
+      <div>
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="user.userName" name="firstName" required>
+      </div>
+    </form>
+  </nz-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>取消</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>保存</button>
+</mat-dialog-actions>

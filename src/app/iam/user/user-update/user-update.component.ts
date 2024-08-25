@@ -3,6 +3,9 @@ import {NzMenuItemComponent} from "ng-zorro-antd/menu";
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {UserUpdate} from "../user.model";
+import {NzCardComponent} from "ng-zorro-antd/card";
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-user-update',
@@ -10,7 +13,13 @@ import {UserUpdate} from "../user.model";
   imports: [
     NzMenuItemComponent,
     RouterLink,
-    FormsModule
+    FormsModule,
+    NzCardComponent,
+    MatDialogActions,
+    MatDialogClose,
+    MatButton,
+    MatDialogContent,
+    MatDialogTitle
   ],
   templateUrl: './user-update.component.html',
   styleUrl: './user-update.component.scss'
